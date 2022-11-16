@@ -24,8 +24,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
    
-   
-    # Spring 어플리케이션 Docker Image 빌드
+
+    # 어플리케이션 Docker Image 빌드
     - name: Build Docker Image For Node.js
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
