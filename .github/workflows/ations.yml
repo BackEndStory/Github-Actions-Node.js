@@ -39,6 +39,8 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}
+             PubkeyAuthentication yes
+             PubkeyAcceptedKeyTypes=+ssh-rsa
         script: |
           docker stop co-walk-nodejs
           docker rm co-walk-nodejs
