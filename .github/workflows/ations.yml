@@ -28,8 +28,11 @@ jobs:
 
 
     # 어플리케이션 Docker Image 빌드
-    - name: Build Docker Image For Node.js
+   # - name: Build Docker Image For Node.js
+    - uses: actions/checkout@v2
+    - name: Build the stack
       run: |
+        docker-compose up -d
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:1.0 .
         docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:1.0
@@ -37,8 +40,7 @@ jobs:
     - name: EC2 Docker Run
       uses: appleboy/ssh-action@master
       with:
-        stack_file_name: docker-compose.yml
-       # args: -p app_node up -d
+        
         host: ${{ secrets.EC2_HOST }}
         username: ubuntu   #우분투   리눅스 시 -> ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}
