@@ -38,7 +38,7 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         stack_file_name: docker-compose.yml
-        args: -p app_node up -d
+       # args: -p app_node up -d
         host: ${{ secrets.EC2_HOST }}
         username: ubuntu   #우분투   리눅스 시 -> ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}
