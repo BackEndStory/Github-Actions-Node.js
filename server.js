@@ -1,5 +1,5 @@
 const express = require('express');
-const createClient = require("redis");
+const redis = require("redis");
 const PORT = 3000;
 
 
@@ -9,11 +9,12 @@ app.get('/', async (req,res) => {
     
     const CLIENT_BASE_URL = " ubuntu_redis-server_1";
 
-    const client = createClient({
-            url: `redis://${CLIENT_BASE_URL}:6379`,
+    const client = redis.createClient({
+         //   url: `redis://${CLIENT_BASE_URL}:6379`,
+         port:6379
         });
     await client.connect();
-    await redisClient.set("1", "이승렬");
+    await client.set("1", "이승렬");
    res.send("ok");
 
 });
