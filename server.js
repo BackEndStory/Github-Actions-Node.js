@@ -1,5 +1,5 @@
 const express = require('express');
-import { createClient } from "redis";
+const createClient = require("redis");
 const PORT = 3000;
 
 
