@@ -5,8 +5,8 @@ services:
    node-app: 
       build:
 
-        dockerfile: Dockerfile
-        context: ./
+        container_name: spring
+        image: leeseungryeol/github_ec2_node:1.0
     
       ports: 
          - "80:3000"
