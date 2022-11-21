@@ -4,7 +4,7 @@ services:
      image: "redis"
    node-app: 
       container_name: spring
-      image: leeseungryeol/github_ec2_node:1.0
+      image: opop0421@naver.com/github_ec2_node:1.0
     
       ports: 
          - "80:3000"
