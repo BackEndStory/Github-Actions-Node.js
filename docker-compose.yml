@@ -4,9 +4,9 @@ services:
      image: "redis"
    node-app: 
       build:
-      
+
         dockerfile: Dockerfile
         context: ./
-      container_name: app_node
+    
       ports: 
          - "80:3000"
