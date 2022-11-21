@@ -1,12 +1,21 @@
 const express = require('express');
-
+import { createClient } from "redis";
 const PORT = 3000;
 
 
 //APP 
 const app = express();
-app.get('/', (req,res) => {
-    res.send("안녕민경 뭐행?ㅋㅋㅋㅋ어댜")
+app.get('/', async (req,res) => {
+    
+    const CLIENT_BASE_URL = "noderedis";
+
+    const client = createClient({
+            url: `redis://${CLIENT_BASE_URL}:6379`,
+        });
+    await client.connect();
+    await redisClient.set("1", "이승렬");
+   res.send("ok");
+
 });
 
 app.listen(PORT);
