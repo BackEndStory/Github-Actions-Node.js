@@ -7,7 +7,7 @@ const PORT = 3000;
 //APP 
 const app = express();
 app.get('/', async (req,res) => {
-    
+    /*
     const CLIENT_BASE_URL = "ubuntu_redis-server_1";
 
     const client = redis.createClient({
@@ -15,7 +15,7 @@ app.get('/', async (req,res) => {
         // port:6379
         });
     await client.connect();
-    await client.set("1", "이승렬");
+    await client.set("1", "이승렬");*/
    res.send("ok");
 
 });
