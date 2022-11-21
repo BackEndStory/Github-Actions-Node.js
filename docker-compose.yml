@@ -3,7 +3,6 @@ services:
   redis-server:
     image: "redis"
   node-app: 
-    build: .    
-    container_name: spring 
+    image: leeseungryeol/github_ec2_node
     ports: 
       - "80:3000"
