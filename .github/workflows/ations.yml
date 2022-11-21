@@ -3,14 +3,11 @@ name: CI/CD - Nodejs CI with NPM and CD with Docker & AWS EC2
 on:
   push:
     branches: [ "master" ]
-
 permissions:
   contents: read
 
-
 jobs:
- 
-  
+
   CI-CD:
     runs-on: ubuntu-latest
     steps:
