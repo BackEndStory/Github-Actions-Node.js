@@ -27,8 +27,8 @@ jobs:
     - name: Build Docker Image For Node.js
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:1.0 .
-        docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:1.0
+        docker build -t lee ./
+        docker push lee
     # 서버에서 Docker 이미지 실행
     - name: EC2 Docker Run
       uses: appleboy/ssh-action@master
@@ -37,8 +37,5 @@ jobs:
         username: ubuntu   #우분투   리눅스 시 -> ec2-user
         key: ${{ secrets.EC2_SSH_KEY }} 
         script: |
-          docker stop app
-          docker rm app
-          docker rmi ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:1.0
-          docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:1.0
-          docker run -d -p 80:3000 --name app ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:1.0
+          docker pull lee
+          docker run -d -p 80:3000 --name app lee

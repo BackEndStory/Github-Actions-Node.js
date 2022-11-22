@@ -8,6 +8,6 @@ COPY package-lock.json ./
 RUN npm install
 
 COPY  ./ ./
-
+EXPOSE 80
 ENV CHOKIDAR_USEPOLLING=true
-CMD ["npm","dev"]
+CMD ["npm","start"]
