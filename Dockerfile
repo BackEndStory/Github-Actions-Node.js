@@ -9,5 +9,5 @@ RUN npm install
 
 COPY  ./ ./
 
-#ENV CHOKIDAR_USEPOLLING=true
+ENV CHOKIDAR_USEPOLLING=true
 CMD ["npm","dev"]
