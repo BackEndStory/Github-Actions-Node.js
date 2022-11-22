@@ -16,7 +16,7 @@ app.get('/', async (req,res) => {
         });
     await client.connect();
     await client.set("1", "이승렬");*/
-   res.send("민영아 자기개발이나 해라 임마ㅋㅋㅋ");
+   res.send("민영아 자기개발이나 해라 임마ㅋㅋㅋ힘내라");
 
 });
 
